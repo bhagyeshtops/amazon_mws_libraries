@@ -12,7 +12,7 @@
   "include-path": ["src/"],
   "autoload": {
     "psr-0": {
-      "MarketplaceWebServiceOrders": "src/",
+      "MarketplaceWebServiceOrders": "src/"
     }
   }
 }
