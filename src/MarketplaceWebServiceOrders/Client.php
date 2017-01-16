@@ -48,7 +48,9 @@ class MarketplaceWebServiceOrders_Client implements MarketplaceWebServiceOrders_
                                'ProxyUsername' => null,
                                'ProxyPassword' => null,
                                'MaxErrorRetry' => 3,
-                               'Headers' => array()
+                               'Headers' => array(),
+							   'SSL_VerifyPeer' => true,
+							   'SSL_VerifyHost' => 2,
                                );
 
 
@@ -398,9 +400,11 @@ class MarketplaceWebServiceOrders_Client implements MarketplaceWebServiceOrders_
      */
     public function __construct($awsAccessKeyId, $awsSecretAccessKey, $applicationName, $applicationVersion, $config = null)
     {
-        iconv_set_encoding('output_encoding', 'UTF-8');
-        iconv_set_encoding('input_encoding', 'UTF-8');
-        iconv_set_encoding('internal_encoding', 'UTF-8');
+        if(version_compare(PHP_VERSION, '5.6.0', '<')) {
+            iconv_set_encoding('output_encoding', 'UTF-8');
+            iconv_set_encoding('input_encoding', 'UTF-8');
+            iconv_set_encoding('internal_encoding', 'UTF-8');
+        }
 
         $this->_awsAccessKeyId = $awsAccessKeyId;
         $this->_awsSecretAccessKey = $awsSecretAccessKey;
@@ -783,8 +787,8 @@ class MarketplaceWebServiceOrders_Client implements MarketplaceWebServiceOrders_
      * @param $ch curl handle
      */
     protected function setSSLCurlOptions($ch) {
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, $this->_config['SSL_VerifyPeer']);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, $this->_config['SSL_VerifyHost']);
     }
 
     /**
