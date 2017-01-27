@@ -1,3 +1,0 @@
-0000000000000000000000000000000000000000 bbb780d371c34828c49a7a802c2d8afba3a02201 tops <tops> 1484566367 +0530	commit (initial): First commit
-bbb780d371c34828c49a7a802c2d8afba3a02201 6c612bcdf08436e40d59b913ec9f87d2dcb89c1d tops <tops> 1484567576 +0530	commit: Corrected syntax error
-6c612bcdf08436e40d59b913ec9f87d2dcb89c1d 4e2a879a2f3a84c10c9bdf3fb6b7c12723c6a824 tops <tops> 1484572532 +0530	commit: - Fixed PHP Deprecated: iconv_set_encoding()
