@@ -1,0 +1,3 @@
+- Fixed PHP Deprecated: iconv_set_encoding()
+- Ability to configure CURLOPT_SSL_VERIFYPEER and CURLOPT_SSL_VERIFYHOST
+-  variable issue fiex in MarketplaceWebServiceOrders\Model\ResponseHeaderMetadata.php
